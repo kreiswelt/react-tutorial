@@ -1,9 +1,15 @@
 import React from "react";
 
-export default class Layout extends React.Component {
+export default class Header extends React.Component {
+	constructor() {
+		super();
+		this.name = "kermit";
+	}
 	render() {
 		return (
-			<header>header</header>
+			<header>
+                <h1>It's {this.name}!</h1>
+            </header>
 		);
 	}
 }
