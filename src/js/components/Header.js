@@ -1,15 +1,12 @@
 import React from "react";
+import Title from "./Header/Title";
 
 export default class Header extends React.Component {
-	constructor() {
-		super();
-		this.name = "kermit";
-	}
 	render() {
 		return (
-			<header>
-                <h1>It's {this.name}!</h1>
-            </header>
+			<div>
+               	<Title title={this.props.title} />
+            </div>
 		);
 	}
 }
