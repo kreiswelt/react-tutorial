@@ -25,12 +25,13 @@ export default class Layout extends React.Component {
 		// setTimeout(() => {
 		// 	this.setState({name: "Bob"});
 		// }, 3000);
-
+		const { history } = this.props;
+		console.log(history.isActive("archives"));
 		return (
 			<div>
                 <Header changeTitle={this.changeTitle.bind(this)} title={this.state.title} />
 				{this.props.children}
-				<Link to="archives">
+				<Link to="archives" activeClassName="test">
 					<button class="btn btn-primary">archives</button>
 				</Link>
 				<Link to="settings">
