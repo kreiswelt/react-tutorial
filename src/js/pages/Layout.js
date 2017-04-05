@@ -3,8 +3,9 @@ import React from "react";
 
 import {Link} from "react-router";
 
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Nav from "../components/layout/Nav";
+import Header from "../components/layout/Header";
+import Footer from "../components/layout/Footer";
 
 export default class Layout extends React.Component {
 	constructor() {
@@ -22,24 +23,23 @@ export default class Layout extends React.Component {
 	}
 
 	render() {
-		// setTimeout(() => {
-		// 	this.setState({name: "Bob"});
-		// }, 3000);
-		const { history } = this.props;
-		console.log(history.isActive("archives"));
+		const { location } = this.props;
+		const containerStyle = {
+			marginTop: "60px"
+		};
+
 		return (
 			<div>
-                <Header changeTitle={this.changeTitle.bind(this)} title={this.state.title} />
-				{this.props.children}
-				<Link to="archives" activeClassName="test">
-					<button class="btn btn-primary">archives</button>
-				</Link>
-				<Link to="settings">
-					<button class="btn btn-success">settings</button>
-				</Link>
-
-				<button onClick={this.navigate.bind(this)}>featured</button>
-                <Footer />
+				<Nav location={location}  />
+				<div class="container" style={containerStyle}>
+					<div class="row">
+						<div class="col-lg-12">
+			                <Header changeTitle={this.changeTitle.bind(this)} title={this.state.title} />
+							{this.props.children}
+						</div>
+					</div>
+	                <Footer />
+				</div>
 			</div>
 		);
 	}
